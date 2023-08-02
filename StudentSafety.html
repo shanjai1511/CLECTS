@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SIET Chem Lab</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <style>
+        @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+        body {
+            background-color: #D32F2F;
+            font-family: 'Calibri', sans-serif !important;
+        }
+
+        .mt-100 {
+            margin-top: 100px;
+        }
+
+        .card {
+            margin-left:15px;
+            margin-right:15px;
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 0px solid transparent;
+            border-radius: 0px;
+        }
+
+        .card-body {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+
+        .card .card-title {
+            position: relative;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .card .experiment-aim {
+            color: #777;
+        }
+
+        ul.list-style-none {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.list-style-none li {
+            display: table-row;
+        }
+
+        ul.list-style-none li a {
+            color: #673AB7;
+            padding: 8px 0px;
+            display: table-cell;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+
+        .top-heading {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .experiment-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .experiment-name {
+            margin-right: 10px;
+        }
+
+        .experiment-aim {
+            color: #777;
+        }
+
+        /* Responsive Styling */
+        @media only screen and (max-width: 600px) {
+            .top-heading {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            .logo {
+                width: 30px;
+                height: 30px;
+            }
+
+            ul.list-style-none li a {
+                padding: 5px 0px;
+            }
+
+            .card-body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mt-100 mb-100">
+        <h1 class="top-heading">
+            <img src="logo.png" alt="Logo" class="logo">
+            SRI SHAKTHI INSTITUTE OF ENGINEERING AND TECHNOLOGY CHEMISTRY LABORATORY
+        </h1>
+        <div class="card">
+            <div class="card-body">
+                <a href="http://localhost/labequipment/Experimentlist.php" style="float:right">Experiment List</a>
+                <h2>Safety Protocols</h2>
+                <h3>Safety Precautions:</h3>
+                <ul>
+                    <li>Always wear appropriate personal protective equipment (PPE), including lab coats, safety goggles, and gloves.</li>
+                    <li>Keep the workspace clean and organized to avoid accidents and spills.</li>
+                    <li>Know the location and proper use of emergency equipment, such as eyewash stations and fire extinguishers.</li>
+                    <li>Never eat, drink, or apply cosmetics in the lab.</li>
+                    <li>Read and understand all experiment instructions before starting.</li>
+                </ul>
+                <h3>Steps to Follow:</h3>
+                <ol>
+                    <li>Perform experiments only under the supervision of a qualified lab instructor.</li>
+                    <li>Always use chemical substances in the designated area, and never mix unknown substances.</li>
+                    <li>Handle all chemicals with care and avoid inhaling fumes directly.</li>
+                    <li>If you spill any chemicals, immediately alert your instructor and follow the proper cleanup procedures.</li>
+                    <li>When heating substances, use a fume hood if possible, and never leave the heating source unattended.</li>
+                    <li>Dispose of all chemical waste properly in designated containers.</li>
+                    <li>Wash your hands thoroughly after each lab session.</li>
+                    <li>If you have any allergies or medical conditions, inform your lab instructor beforehand.</li>
+                    <li>Never perform unauthorized experiments or modifications to the lab equipment.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
