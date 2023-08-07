@@ -178,9 +178,10 @@
 					<select id="voiceSelector" onchange="changeVoice()"></select>
 				</div>
 				<div id="navigation">
-					<?php for ($i = 0; $i < $totalSteps; $i++) { ?>
+					<?php if (isset($totalSteps)) { 
+						for ($i = 0; $i < $totalSteps; $i++) { ?>
 					<a onclick="navigateToStep(<?php echo $i; ?>)" class="<?php echo $i === 0 ? 'current' : ''; ?>"><?php echo ($i + 1); ?></a>
-					<?php } ?>
+					<?php } }?>
 				</div>
 			</div>
 		</div>

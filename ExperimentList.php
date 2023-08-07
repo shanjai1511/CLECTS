@@ -114,7 +114,7 @@
 			</h1>
 			<div class="card">
 				<div class="card-body">
-					<a href="http://localhost/labequipment/studentsafety.html" style="float:right">Safety Protocol</a>
+					<a href="http://localhost/chemlab/studentsafety.html" style="float:right">Safety Protocol</a>
 					<br>
 					<h4 class="card-title">Experiments</h4>
 					<ul class="list-style-none">

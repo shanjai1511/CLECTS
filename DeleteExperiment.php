@@ -116,10 +116,11 @@
 			<div class="sidebar">
 				<h2>Navigation</h2>
 				<ul>
-					<li><a href="http://localhost/labequipment/AdminIndex.php">View Experiment</a></li>
-					<li><a href="http://localhost/labequipment/AddExperiment.php">Add Experiment</a></li>
-					<li><a href="http://localhost/labequipment/deleteexperiment.php">Delete Experiment</a></li>
-					<li><a href="http://localhost/labequipment/teachersafety.html">Safety Protocols</a></li>
+					<li><a href="http://localhost/chemlab/AdminIndex.php">View Experiment</a></li>
+					<li><a href="http://localhost/chemlab/AddExperiment.php">Add Experiment</a></li>
+                    <li><a href="http://localhost/chemlab/AddStep.php">Add Step</a></li>
+					<li><a href="http://localhost/chemlab/deleteexperiment.php">Delete Experiment</a></li>
+					<li><a href="http://localhost/chemlab/teachersafety.html">Safety Protocols</a></li>
 				</ul>
 			</div>
 			<div class="content">

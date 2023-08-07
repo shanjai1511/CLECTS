@@ -65,7 +65,8 @@
 			}
 			input[type="text"],
 			input[type="number"],
-			textarea {
+			textarea,
+			select {
 			width: 100%;
 			padding: 8px;
 			border: 1px solid #ccc;
@@ -117,6 +118,7 @@
 				<ul>
 					<li><a href="http://localhost/chemlab/AdminIndex.php">View Experiment</a></li>
 					<li><a href="http://localhost/chemlab/AddExperiment.php">Add Experiment</a></li>
+                    <li><a href="http://localhost/chemlab/AddStep.php">Add Step</a></li>
 					<li><a href="http://localhost/chemlab/deleteexperiment.php">Delete Experiment</a></li>
 					<li><a href="http://localhost/chemlab/teachersafety.html">Safety Protocols</a></li>
 				</ul>
@@ -126,67 +128,65 @@
 					<img src="logo.png" alt="Logo" class="logo">
 					<h1>Sri Shakthi Institute of Engineering and Technology Chemistry Laboratory</h1>
 				</div>
+				<h2>Add Experiment Step</h2>
+				
+				<?php
+					// Database connection
+					$servername = "localhost";
+					$username = "root";
+					$password = "root";
+					$dbname = "experiment";
 
-				<!-- Generated PHP code -->
-				<div id="add_experiment">
-					<h2>Add Experiment</h2>
+					$conn = new mysqli($servername, $username, $password, $dbname);
+					if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
+					}
+
+					// Retrieve experiment options for dropdown
+					$experimentQuery = "SELECT experimentId, experimentName FROM experiments";
+					$experimentResult = $conn->query($experimentQuery);
+				?>
+
+				<form action="rough1.php" method="POST">
+					<label for="experiment">Select Experiment:</label>
+					<select name="experiment" id="experiment">
 					<?php
-						$servername = "localhost";
-						$username = "root";
-						$password = "root";
-						$dbname = "experiment";
-
-						// Create connection
-						$conn = new mysqli($servername, $username, $password, $dbname);
-
-						// Check connection
-						if ($conn->connect_error) {
-							die("Connection failed: " . $conn->connect_error);
+						while ($row = $experimentResult->fetch_assoc()) {
+							echo '<option value="' . $row["experimentId"] . '">' . $row["experimentName"] . '</option>';
 						}
-
-						// Get the last experiment ID
-						$getLastIdQuery = "SELECT MAX(experimentId) AS lastId FROM experiments";
-						$lastIdResult = $conn->query($getLastIdQuery);
-						$lastIdRow = $lastIdResult->fetch_assoc();
-						$nextExperimentId = $lastIdRow['lastId'] + 1;
-
-						if ($_SERVER["REQUEST_METHOD"] == "POST") {
-							$experimentName = $_POST["experimentName"];
-							$noOfSteps = $_POST["noOfSteps"];
-							$aim = $_POST["aim"];
-							$requiredApparatuss = $_POST["requiredApparatuss"];
-
-							$sql = "INSERT INTO experiments (experimentId, experimentName, noOfSteps, aim, requiredApparatuss)
-									VALUES ($nextExperimentId, '$experimentName', $noOfSteps, '$aim', '$requiredApparatuss')";
-
-							if ($conn->query($sql) === TRUE) {
-								echo "<p>Experiment added successfully.</p>";
-							} else {
-								echo "Error: " . $sql . "<br>" . $conn->error;
-							}
-						}
-
-						$conn->close();
 					?>
+					</select><br>
 
-					<form method="post" action="">
-						<label for="experimentName">Experiment Name:</label>
-						<input type="text" name="experimentName" required><br>
+					<label for="description">Description:</label>
+					<textarea name="description" id="description" rows="4" cols="50"></textarea><br>
 
-						<label for="noOfSteps">Number of Steps:</label>
-						<input type="number" name="noOfSteps" required><br>
+					<label for="stepNo">Step Number:</label>
+					<input type="number" name="stepNo" id="stepNo" required><br>
 
-						<label for="aim">Aim:</label>
-						<input type="text" name="aim" required><br>
+					<label for="video">Video URL:</label>
+					<input type="text" name="video" id="video"><br><br>
 
-						<label for="requiredApparatuss">Required Apparatus:</label>
-						<input type="text" name="requiredApparatuss" required><br>
+					<button type="submit" value="Add Step">Submit</button>
+				</form>
 
-						<br>
+				<?php
+					// Insert data into experiment_steps table
+					if ($_SERVER["REQUEST_METHOD"] == "POST") {
+						$exptId = $_POST["experiment"];
+						$description = $_POST["description"];
+						$stepNo = $_POST["stepNo"];
+						$video = $_POST["video"];
 
-						<button id="submitbutton" type="submit" value="Add Experiment">submit</button>
-					</form>
-				</div>
+						$insertQuery = "INSERT INTO experiment_steps (exptId, description, stepNo, video) VALUES ('$exptId', '$description', '$stepNo', '$video')";
+						if ($conn->query($insertQuery) === TRUE) {
+							echo "Step added successfully.";
+						} else {
+							echo "Error: " . $insertQuery . "<br>" . $conn->error;
+						}
+					}
+
+					$conn->close();
+				?>
 			</div>
 		</div>
 	</body>
