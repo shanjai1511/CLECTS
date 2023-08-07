@@ -55,8 +55,10 @@ CREATE TABLE experiment_steps (
   exptId INT,
   description VARCHAR(255),
   stepNo INT,
+  video VARCHAR(255),
   FOREIGN KEY (exptId) REFERENCES experiments(experimentId)
 );
+INSERT INTO experiment_steps (exptId, description, stepNo, video) VALUES (2, 'Preparing the sample', 6, 'C:\Users\User\Desktop\Main.mp4');
 INSERT INTO experiment_steps (exptId, description, stepNo)
 VALUES 
   (1, 'Measure and pour the reactants into the beaker', 1),
