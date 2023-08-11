@@ -69,24 +69,27 @@
 			select {
 			width: 100%;
 			padding: 8px;
-			border: 1px solid #ccc;
+			border: 2px solid #ccd;
 			border-radius: 4px;
 			box-sizing: border-box;
+			height:40px;
 			}
 			textarea {
-			height: 100px;
+			height: 70px;
 			}
 			button[type="submit"] {
 			background-color: #5D54A4;
 			color: #fff;
 			border: none;
+			width:200px;
 			padding: 10px 20px;
 			font-size: 16px;
 			border-radius: 4px;
 			cursor: pointer;
+			margin-left: 300px
 			}
 			button[type="submit"]:hover {
-			background-color: #5D54A2;
+			background-color: blue;
 			}
 			.logo {
 			width: 40px;
@@ -150,18 +153,19 @@
 				<form action="rough1.php" method="POST">
 					<label for="experiment">Select Experiment:</label>
 					<select name="experiment" id="experiment">
-					<?php
-						while ($row = $experimentResult->fetch_assoc()) {
-							echo '<option value="' . $row["experimentId"] . '">' . $row["experimentName"] . '</option>';
-						}
-					?>
-					</select><br>
+						<option>-Select one-</option>
+						<?php
+							while ($row = $experimentResult->fetch_assoc()) {
+								echo '<option value="' . $row["experimentId"] . '">' . $row["experimentName"] . '</option>';
+							}
+						?>
+					</select><br><br>
 
 					<label for="description">Description:</label>
-					<textarea name="description" id="description" rows="4" cols="50"></textarea><br>
+					<textarea name="description" id="description" rows="4" cols="50"></textarea><br><br>
 
 					<label for="stepNo">Step Number:</label>
-					<input type="number" name="stepNo" id="stepNo" required><br>
+					<input type="number" name="stepNo" id="stepNo" required><br><br>
 
 					<label for="video">Video URL:</label>
 					<input type="text" name="video" id="video"><br><br>
