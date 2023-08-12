@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.2.0
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1
+- Generation Time: Aug 12, 2023 at 03:15 PM
+- Server version: 8.0.29
+- PHP Version: 8.1.6
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="experiment" collation="utf8mb4_0900_ai_ci" charset="utf8mb4">
+            <pma:table name="experiments">
+                CREATE TABLE `experiments` (
+                  `experimentId` int NOT NULL,
+                  `experimentName` varchar(255) DEFAULT NULL,
+                  `noOfSteps` int DEFAULT NULL,
+                  `aim` varchar(255) DEFAULT NULL,
+                  `requiredApparatuss` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`experimentId`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="experiment_steps">
+                CREATE TABLE `experiment_steps` (
+                  `exptId` int DEFAULT NULL,
+                  `description` varchar(255) DEFAULT NULL,
+                  `stepNo` int DEFAULT NULL,
+                  `video` varchar(2000) DEFAULT NULL,
+                  KEY `exptId` (`exptId`),
+                  CONSTRAINT `experiment_steps_ibfk_1` FOREIGN KEY (`exptId`) REFERENCES `experiments` (`experimentId`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `userId` char(7) NOT NULL,
+                  `name` varchar(45) NOT NULL,
+                  `designation` varchar(45) NOT NULL,
+                  `password` varchar(12) NOT NULL,
+                  PRIMARY KEY (`userId`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'experiment'
+    -->
+    <database name="experiment">
+        <!-- Table experiments -->
+        <table name="experiments">
+            <column name="experimentId">1</column>
+            <column name="experimentName">Chemical Reaction</column>
+            <column name="noOfSteps">5</column>
+            <column name="aim">To study the reaction kinetics</column>
+            <column name="requiredApparatuss">Beakers, Bunsen burner, Thermometer</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">2</column>
+            <column name="experimentName">Electrical Circuit Analysis</column>
+            <column name="noOfSteps">8</column>
+            <column name="aim">To analyze circuit behavior</column>
+            <column name="requiredApparatuss">Multimeter, Breadboard, Resistors</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">3</column>
+            <column name="experimentName">Microbiology Culture</column>
+            <column name="noOfSteps">6</column>
+            <column name="aim">To cultivate microorganisms</column>
+            <column name="requiredApparatuss">Petri dishes, Agar, Incubator</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">4</column>
+            <column name="experimentName">Genetic Sequencing</column>
+            <column name="noOfSteps">10</column>
+            <column name="aim">To sequence DNA</column>
+            <column name="requiredApparatuss">PCR machine, DNA sequencer, Primers</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">5</column>
+            <column name="experimentName">Physics Pendulum Experiment</column>
+            <column name="noOfSteps">4</column>
+            <column name="aim">To study pendulum motion</column>
+            <column name="requiredApparatuss">String, Weight, Stopwatch</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">6</column>
+            <column name="experimentName">Acid-Base Titration</column>
+            <column name="noOfSteps">7</column>
+            <column name="aim">To determine concentration</column>
+            <column name="requiredApparatuss">Burette, Pipette, Indicator</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">7</column>
+            <column name="experimentName">Plant Growth Observation</column>
+            <column name="noOfSteps">3</column>
+            <column name="aim">To monitor plant growth</column>
+            <column name="requiredApparatuss">Pots, Soil, Watering can</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">8</column>
+            <column name="experimentName">Density Measurement</column>
+            <column name="noOfSteps">5</column>
+            <column name="aim">To measure density of substances</column>
+            <column name="requiredApparatuss">Graduated cylinder, Balance</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">9</column>
+            <column name="experimentName">Magnetic Field Mapping</column>
+            <column name="noOfSteps">6</column>
+            <column name="aim">To map magnetic field lines</column>
+            <column name="requiredApparatuss">Compass, Magnetic probes</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">10</column>
+            <column name="experimentName">Heat Transfer Experiment</column>
+            <column name="noOfSteps">7</column>
+            <column name="aim">To study heat conduction</column>
+            <column name="requiredApparatuss">Heat source, Thermocouples</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">11</column>
+            <column name="experimentName">Chemical Synthesis</column>
+            <column name="noOfSteps">4</column>
+            <column name="aim">To synthesize organic compounds</column>
+            <column name="requiredApparatuss">Round-bottom flask, Condenser</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">12</column>
+            <column name="experimentName">Solar Cell Efficiency</column>
+            <column name="noOfSteps">5</column>
+            <column name="aim">To measure solar cell efficiency</column>
+            <column name="requiredApparatuss">Solar simulator, Current-voltage meter</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">13</column>
+            <column name="experimentName">Reaction Rate Determination</column>
+            <column name="noOfSteps">6</column>
+            <column name="aim">To determine reaction rates</column>
+            <column name="requiredApparatuss">Reaction vessel, Spectrophotometer</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">14</column>
+            <column name="experimentName">Bacterial Staining</column>
+            <column name="noOfSteps">4</column>
+            <column name="aim">To stain bacteria for microscopy</column>
+            <column name="requiredApparatuss">Crystal violet, Safranin</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">15</column>
+            <column name="experimentName">Electroplating Process</column>
+            <column name="noOfSteps">6</column>
+            <column name="aim">To electroplate metal objects</column>
+            <column name="requiredApparatuss">Electrolyte, Power supply</column>
+        </table>
+        <table name="experiments">
+            <column name="experimentId">16</column>
+            <column name="experimentName">Optical Fiber Communication</column>
+            <column name="noOfSteps">8</column>
+            <column name="aim">To transmit data using optical fibers</column>
+            <column name="requiredApparatuss">Optical transmitter, Receiver</column>
+        </table>
+        <!-- Table experiment_steps -->
+        <table name="experiment_steps">
+            <column name="exptId">1</column>
+            <column name="description">Measure and pour the reactants into the beaker</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">1</column>
+            <column name="description">Heat the mixture using a Bunsen burner</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">1</column>
+            <column name="description">Record the temperature every 30 seconds</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">1</column>
+            <column name="description">Analyze the reaction products</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">1</column>
+            <column name="description">Calculate the reaction rate</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">2</column>
+            <column name="description">Design the circuit diagram</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">2</column>
+            <column name="description">Connect components on the breadboard</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">2</column>
+            <column name="description">Apply voltage and measure current</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">2</column>
+            <column name="description">Record voltage and current values in a table</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">2</column>
+            <column name="description">Calculate total resistance and power</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">2</column>
+            <column name="description">Analyze circuit behavior using Ohms Law</column>
+            <column name="stepNo">6</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">2</column>
+            <column name="description">Draw voltage and current waveforms</column>
+            <column name="stepNo">7</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">2</column>
+            <column name="description">Summarize circuit analysis findings</column>
+            <column name="stepNo">8</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">3</column>
+            <column name="description">Prepare the growth medium</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">3</column>
+            <column name="description">Inoculate the microorganisms onto the agar</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">3</column>
+            <column name="description">Incubate the Petri dishes at the appropriate temperature</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">3</column>
+            <column name="description">Observe and document the colony growth</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">3</column>
+            <column name="description">Perform Gram staining to determine cell type</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">3</column>
+            <column name="description">Identify and classify the microorganisms</column>
+            <column name="stepNo">6</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">4</column>
+            <column name="description">Extract DNA from the sample</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">4</column>
+            <column name="description">Set up the PCR reaction with appropriate primers</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">4</column>
+            <column name="description">Run the PCR cycles in a thermal cycler</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">4</column>
+            <column name="description">Prepare the DNA sequencing reaction</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">4</column>
+            <column name="description">Load the sample into the DNA sequencer</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">4</column>
+            <column name="description">Analyze and interpret the DNA sequencing results</column>
+            <column name="stepNo">6</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">4</column>
+            <column name="description">Generate a DNA sequence report</column>
+            <column name="stepNo">7</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">4</column>
+            <column name="description">Perform sequence alignment and comparison</column>
+            <column name="stepNo">8</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">4</column>
+            <column name="description">Identify genetic variations and mutations</column>
+            <column name="stepNo">9</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">4</column>
+            <column name="description">Draw conclusions about the DNA sequence</column>
+            <column name="stepNo">10</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">5</column>
+            <column name="description">Set up a pendulum with a string and weight</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">5</column>
+            <column name="description">Release the pendulum from a fixed angle</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">5</column>
+            <column name="description">Measure the time period of the pendulum</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">5</column>
+            <column name="description">Repeat the measurements for different lengths</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">6</column>
+            <column name="description">Prepare the standard solutions of acid and base</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">6</column>
+            <column name="description">Fill the burette with one of the solutions</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">6</column>
+            <column name="description">Add the solution gradually to the flask</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">6</column>
+            <column name="description">Record the volume at the equivalence point</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">6</column>
+            <column name="description">Calculate the concentration of the unknown solution</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">6</column>
+            <column name="description">Repeat the titration for accuracy</column>
+            <column name="stepNo">6</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">7</column>
+            <column name="description">Plant the seeds in the pots with soil</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">7</column>
+            <column name="description">Water the plants regularly</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">7</column>
+            <column name="description">Observe and record the plant growth</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">8</column>
+            <column name="description">Measure the mass of the substance</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">8</column>
+            <column name="description">Fill the graduated cylinder with a known volume of water</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">8</column>
+            <column name="description">Carefully add the substance to the cylinder</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">8</column>
+            <column name="description">Record the new water volume</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">8</column>
+            <column name="description">Calculate the density using the mass and volume</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">9</column>
+            <column name="description">Place the compass near the magnetic field source</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">9</column>
+            <column name="description">Note the direction of the compass needle</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">9</column>
+            <column name="description">Move the compass to different locations</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">9</column>
+            <column name="description">Plot the magnetic field lines on a map</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">9</column>
+            <column name="description">Use magnetic probes to measure the field strength</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">9</column>
+            <column name="description">Analyze and interpret the magnetic field data</column>
+            <column name="stepNo">6</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">10</column>
+            <column name="description">Prepare the heat source</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">10</column>
+            <column name="description">Connect the thermocouples to the objects</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">10</column>
+            <column name="description">Measure and record the initial temperatures</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">10</column>
+            <column name="description">Apply heat and monitor the temperature changes</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">10</column>
+            <column name="description">Record the final temperatures</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">10</column>
+            <column name="description">Calculate the rate of heat transfer</column>
+            <column name="stepNo">6</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">10</column>
+            <column name="description">Analyze the results and draw conclusions</column>
+            <column name="stepNo">7</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">11</column>
+            <column name="description">Set up the round-bottom flask and condenser</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">11</column>
+            <column name="description">Add the reactants and catalyst to the flask</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">11</column>
+            <column name="description">Heat the mixture and monitor the reaction</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">11</column>
+            <column name="description">Cool the reaction and extract the product</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">12</column>
+            <column name="description">Set up the solar cell in a controlled environment</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">12</column>
+            <column name="description">Measure and record the incident light intensity</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">12</column>
+            <column name="description">Measure and record the current-voltage characteristics</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">12</column>
+            <column name="description">Calculate the efficiency of the solar cell</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">12</column>
+            <column name="description">Repeat the measurements for different conditions</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">13</column>
+            <column name="description">Prepare the reaction vessel and reagents</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">13</column>
+            <column name="description">Initiate the reaction and start the timer</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">13</column>
+            <column name="description">Measure the absorbance at regular intervals</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">13</column>
+            <column name="description">Plot a graph of absorbance versus time</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">13</column>
+            <column name="description">Determine the reaction rate from the graph</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">13</column>
+            <column name="description">Analyze factors affecting the reaction rate</column>
+            <column name="stepNo">6</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">14</column>
+            <column name="description">Prepare the bacterial smear on a slide</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">14</column>
+            <column name="description">Stain the bacteria with crystal violet</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">14</column>
+            <column name="description">Wash and decolorize the slide</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">14</column>
+            <column name="description">Counterstain the bacteria with safranin</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">15</column>
+            <column name="description">Prepare the electrolyte solution</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">15</column>
+            <column name="description">Connect the object to be electroplated</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">15</column>
+            <column name="description">Immerse the object and apply current</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">15</column>
+            <column name="description">Monitor the electroplating process</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">16</column>
+            <column name="description">Set up the optical transmitter</column>
+            <column name="stepNo">1</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">16</column>
+            <column name="description">Connect the optical fibers</column>
+            <column name="stepNo">2</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">16</column>
+            <column name="description">Transmit data through the fibers</column>
+            <column name="stepNo">3</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">16</column>
+            <column name="description">Receive and decode the transmitted data</column>
+            <column name="stepNo">4</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">16</column>
+            <column name="description">Analyze the data transmission quality</column>
+            <column name="stepNo">5</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">16</column>
+            <column name="description">Optimize the system for better performance</column>
+            <column name="stepNo">6</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <table name="experiment_steps">
+            <column name="exptId">16</column>
+            <column name="description">Summarize the findings and conclusions</column>
+            <column name="stepNo">7</column>
+            <column name="video">http://localhost/chemlab/Main.mp4</column>
+        </table>
+        <!-- Table users -->
+        <table name="users">
+            <column name="userId">LAB001</column>
+            <column name="name">Meena Sundaram</column>
+            <column name="designation">Lab Assistant</column>
+            <column name="password">lab123</column>
+        </table>
+        <table name="users">
+            <column name="userId">LAB002</column>
+            <column name="name">Suresh Raman</column>
+            <column name="designation">Junior Lab Assistant</column>
+            <column name="password">lab456</column>
+        </table>
+        <table name="users">
+            <column name="userId">LAB003</column>
+            <column name="name">Priya Nair</column>
+            <column name="designation">Senior Lab Assistant</column>
+            <column name="password">lab789</column>
+        </table>
+        <table name="users">
+            <column name="userId">LAB004</column>
+            <column name="name">Karthik Rajendran</column>
+            <column name="designation">Lab Technician</column>
+            <column name="password">lab012</column>
+        </table>
+        <table name="users">
+            <column name="userId">LAB005</column>
+            <column name="name">Nithya Balaji</column>
+            <column name="designation">Lab Supervisor</column>
+            <column name="password">lab345</column>
+        </table>
+        <table name="users">
+            <column name="userId">STU001</column>
+            <column name="name">Arjun Sharma</column>
+            <column name="designation">Student</column>
+            <column name="password">student123</column>
+        </table>
+        <table name="users">
+            <column name="userId">STU002</column>
+            <column name="name">Divya Menon</column>
+            <column name="designation">Student</column>
+            <column name="password">student456</column>
+        </table>
+        <table name="users">
+            <column name="userId">STU003</column>
+            <column name="name">Rahul Kapoor</column>
+            <column name="designation">Student</column>
+            <column name="password">student789</column>
+        </table>
+        <table name="users">
+            <column name="userId">STU004</column>
+            <column name="name">Ananya Nair</column>
+            <column name="designation">Student</column>
+            <column name="password">student012</column>
+        </table>
+        <table name="users">
+            <column name="userId">STU005</column>
+            <column name="name">Kiran Rajendran</column>
+            <column name="designation">Student</column>
+            <column name="password">student345</column>
+        </table>
+        <table name="users">
+            <column name="userId">TCH001</column>
+            <column name="name">Rajesh Kumar</column>
+            <column name="designation">Professor</column>
+            <column name="password">teacher123</column>
+        </table>
+        <table name="users">
+            <column name="userId">TCH002</column>
+            <column name="name">Deepika Sharma</column>
+            <column name="designation">Assistant Professor</column>
+            <column name="password">teacher456</column>
+        </table>
+        <table name="users">
+            <column name="userId">TCH003</column>
+            <column name="name">Sanjay Verma</column>
+            <column name="designation">Lecturer</column>
+            <column name="password">teacher789</column>
+        </table>
+        <table name="users">
+            <column name="userId">TCH004</column>
+            <column name="name">Sneha Rajan</column>
+            <column name="designation">Associate Professor</column>
+            <column name="password">teacher012</column>
+        </table>
+        <table name="users">
+            <column name="userId">TCH005</column>
+            <column name="name">Aruna Menon</column>
+            <column name="designation">Senior Lecturer</column>
+            <column name="password">teacher345</column>
+        </table>
+    </database>
+</pma_xml_export>
