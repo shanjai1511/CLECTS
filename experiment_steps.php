@@ -127,7 +127,7 @@
 			</h1> -->
 		<?php
 			// Connect to MySQL
-			$conn = mysqli_connect("localhost", "root", "root", "experiment");
+			$conn = mysqli_connect("sql213.infinityfree.com", "if0_35157610", "pnTR4jkD9wDm3Wp", "if0_35157610_experiment");
 			
 			// Check connection
 			if (!$conn) {
@@ -212,8 +212,21 @@
 			
 			    if (card) {
 			        card.classList.remove('card-visible');
-			
-			        setTimeout(function () {
+			        
+                    
+                    
+                    
+                    
+                    // setTimeout(function () {
+			        //     card.innerHTML = '<h2>Step ' + (currentStep + 1) + '/' + totalSteps + '</h2>' + '<p>' + steps[currentStep] + '</p>' +
+			        // '<iframe width="640" height="360" src="' + video[currentStep] + '"></iframe>';
+			        //     card.classList.add('card-visible');
+			        // }, 300);
+                    
+                    
+                    
+                    
+                    setTimeout(function () {
 			            card.innerHTML = '<h2>Step ' + (currentStep + 1) + '/' + totalSteps + '</h2>' + '<p>' + steps[currentStep] + '</p>' +
 			        '<video height="300px" width="400px" controls>' +
 			        '<source src="' + video[currentStep] + '" type="video/mp4">' +
