@@ -4,124 +4,258 @@
 		<title>SIET Chem Lab</title>
 		<link rel="icon" type="image/x-icon" href="logo.png">
 		<style>
-			@import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
-			body {
-			margin: 0;
-			padding: 0;
-			font-family: 'Calibri', sans-serif;
-			text-decoration: none;
-			overflow: hidden;
-			}
-			.container {
-			display: flex;
-			flex-direction: row;
-			min-height: 100vh;
-			}
-			.sidebar {
-			background-color: #5D54A4;
-			color: #fff;
-			width: 200px;
-			padding: 20px;
-			margin-bottom: 0px;
-			}
-			.sidebar h2 {
-			margin-top: 0;
-			font-size: 24px;
-			}
-			.sidebar ul {
-			list-style: none;
-			padding: 0;
-			margin: 20px 0;
-			}
-			.sidebar li {
-			margin-bottom: 10px;
-			}
-			.sidebar a {
-			color: #fff;
-			text-decoration: none;
-			}
-			.sidebar a:hover {
-			text-decoration: underline;
-			}
-			.content {
-			flex: 1;
-			padding: 20px;
-			}
-			.header {
-			background-color: #5D54A4;
-			color: #fff;
-			padding: 20px;
-			display: flex;
-			align-items: center;
-			}
-			.header h1 {
-			margin: 0;
-			font-size: 24px;
-			}
-			.logo {
-			width: 40px;
-			height: 40px;
-			margin-right: 10px;
-			}
-			.experiment-list {
-			list-style: none;
-			padding: 0;
-			margin-top: 20px;
-			}
-			.experiment-list li {
-			margin-bottom: 10px;
-			color: #555;
-			cursor: pointer;
-			}
-			.experiment-list li span {
-			font-weight: bold;
-			}
-			.experiment-list li .aim {
-			color: #777;
-			}
+  body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: #333;
+            color: #fff;
+            width: 200px;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            margin-left:0px;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            padding-left: 15px;
+            background-color: ;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .sidebar li:hover{
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+            padding-top: 15px;
+            padding-left: 15px;
+            background-color: grey;
+            text-decoration: underline;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 200px; /* Adjust based on sidebar width */
+            background-color: #f2f2f2; /* Changed content background color */
+            overflow-y: auto;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            margin-left:50px;
+            margin-top:20px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 200px; /* Adjust based on sidebar width */
+            right: 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .experiment-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 80px; /* Adjust based on header height */
+            margin-left: 20px;
+            padding: 20px;
+        }
+
+        .experiment {
+            flex-basis: calc(33.33% - 20px); /* Adjust width as per your preference */
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .experiment:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .experiment-content {
+            padding: 20px;
+        }
+
+        .experiment h3 {
+            margin-top: 0;
+        }
+
+        .experiment p {
+            margin: 0;
+        }
+        .experiment a{
+            text-decoration:none;
+            color: black;
+        }
+
+        .active{
+	margin-bottom: 10px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-left: 15px;
+  background-color: grey;
+  text-decoration: none;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    margin: 1.5rem auto;
+    width: 90%;
+    max-width: 1200px;
+    overflow: hidden;	color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-body {
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;	color: black;
+  }
+
+  .card-body::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;	color: black;
+    height: 100%;
+    background-image: radial-gradient(circle at 50% 0, rgba(0, 0, 0, 0.2), transparent), radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.2), transparent);
+    background-size: 1500% 1500%;
+    animation: Rotate 12s linear infinite;
+    transform-origin: center;
+  }
+
+  .card-body h4 {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;	color: black;
+    margin-bottom: 1rem;
+  }
+
+  .card-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;	color: black;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card-body ul li {
+    width: calc(33.333% - 20px);
+    margin-bottom: 1rem;
+    background-color: white;
+	color: black;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .card-body ul li a {
+    display: flex;
+    align-items: center;	color: black;
+    padding: 1rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  .card-body li{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+  }
+  .experiment-name{
+	color: black;
+  }
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<div class="sidebar">
-				<h2>Navigation</h2>
+				<h2>&nbsp</h2>
 				<ul>
 					<li><a href="http://localhost/chemlab/AdminIndex.php">View Experiment</a></li>
 					<li><a href="http://localhost/chemlab/AddExperiment.php">Add Experiment</a></li>
                     <li><a href="http://localhost/chemlab/AddStep.php">Add Step</a></li>
 					<li><a href="http://localhost/chemlab/deleteexperiment.php">Delete Experiment</a></li>
-					<li><a href="http://localhost/chemlab/teachersafety.html">Safety Protocols</a></li>
+					<li class="active"><a href="http://localhost/chemlab/teachersafety.html">Safety Protocols</a></li>
 				</ul>
 			</div>
 			<div class="content">
 				<div class="header">
 					<img src="logo.png" alt="Logo" class="logo">
 					<h1>Sri Shakthi Institute of Engineering and Technology Chemistry Laboratory</h1>
+				</div><br><br><br><div class="card-body">
+					<h3 style="color:black;">Safety Precautions:</h3>
+					<ul class="list-style-none">
+						<li><a><span class="experiment-info"><span class="experiment-name">Always wear appropriate personal protective equipment (PPE), including lab coats, safety goggles, and gloves.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">Always wear appropriate personal protective equipment (PPE), including lab coats, safety goggles, and gloves.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">Keep the workspace clean and organized to avoid accidents and spills.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">Know the location and proper use of emergency equipment, such as eyewash stations and fire extinguishers.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">Never eat, drink, or apply cosmetics in the lab.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">Read and understand all experiment instructions before starting.</span></span></a></li>
+					</ul>
+					<h3 style="color:black;">Steps to Follow:</h3>
+					<ul class="list-style-none">
+						<li><a><span class="experiment-info"><span class="experiment-name">Perform experiments only under the supervision of a qualified lab instructor.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">Always use chemical substances in the designated area, and never mix unknown substances.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">Handle all chemicals with care and avoid inhaling fumes directly.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">If you spill any chemicals, immediately alert your instructor and follow the proper cleanup procedures.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">When heating substances, use a fume hood if possible, and never leave the heating source unattended.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">Dispose of all chemical waste properly in designated containers.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">Wash your hands thoroughly after each lab session.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">If you have any allergies or medical conditions, inform your lab instructor beforehand.</span></span></a></li>
+						<li><a><span class="experiment-info"><span class="experiment-name">Never perform unauthorized experiments or modifications to the lab equipment.</span></span></a></li>
+					</ul>
 				</div>
-				<h2> Safety Precautions and Steps</h2>
-				<h3>Safety Precautions:</h3>
-				<ul>
-					<li>Prioritize safety above all else and set a good example for students.</li>
-					<li>Ensure that all students wear appropriate personal protective equipment (PPE) like lab coats, safety goggles, and gloves.</li>
-					<li>Conduct a safety briefing at the beginning of each lab session to discuss potential hazards and safety procedures.</li>
-					<li>Know the location and proper use of emergency equipment, such as eyewash stations and fire extinguishers.</li>
-					<li>Regularly inspect and maintain lab equipment to ensure its proper functioning.</li>
-					<li>Have a clear plan for handling emergencies and accidents.</li>
-				</ul>
-				<h3>Steps to Follow:</h3>
-				<ol>
-					<li>Provide detailed instructions and demonstrations for each experiment, emphasizing safety measures.</li>
-					<li>Monitor students closely during lab sessions to prevent unsafe practices.</li>
-					<li>Restrict access to hazardous materials and chemicals, allowing only qualified students to handle them.</li>
-					<li>Ensure that chemical storage areas are properly labeled and securely locked when not in use.</li>
-					<li>Supervise students when heating substances and encourage the use of fume hoods.</li>
-					<li>Teach proper chemical waste disposal procedures and provide designated waste containers.</li>
-					<li>Enforce a strict "no eating, drinking, or applying cosmetics" policy in the lab.</li>
-					<li>Incorporate safety quizzes or assessments to reinforce safety knowledge.</li>
-					<li>Stay informed about any students' medical conditions or allergies that may require special precautions.</li>
-					<li>Regularly review and update safety protocols based on best practices and industry standards.</li>
-				</ol>
-			</div>
+		</div>
 		</div>
 	</body>
 </html>

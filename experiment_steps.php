@@ -4,130 +4,310 @@
 		<title>SIET Chem Lab</title>
 		<link rel="icon" type="image/x-icon" href="logo.png">
 		<style>
-			*{
-			cursor: default;
-			}
+  .top-heading {
+	margin:auto;
+text-align:center;
+  padding: auto;
+  overflow: hidden;
+    background-color: #1A1A1A;
+    padding: 1rem;
+	color:#fff;
+    justify-content: center;
+    align-items: center;
+ 
+
+  }
+
+    #component {
+		
+        background-color:white;
+        padding-bottom: 40px;
+        perspective: 1000px;
+    }
+
+    #stepContainer {
+        max-width: 600px;
+		position:fixed;
+        margin-left: 25%;
+        background-color:white;
+        transform-style: preserve-3d;
+    }
+
+    .card {
+        background: linear-gradient(#333, #444);
+        color: #fff;
+        padding: 20px;
+        position: relative;
+        transform: rotateX(2deg) rotateY(-1deg);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+    }
+
+    .card-visible {
+        opacity: 1;
+    }
+
+    #buttonContainer {
+        text-align: right;
+        margin-top: 20px;
+    }
+
+    #previousButton,
+    #nextButton,
+    #playButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #212121;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        margin-left: 0px;
+    }
+
+    #voiceSelectorContainer {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    #voiceSelector {
+        padding: 5px;
+        font-size: 14px;
+    }
+
+    #navigation {
+        text-align: left;
+        margin-top: 20px;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #navigation a {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #212121;
+        color: #fff;
+        text-decoration: none;
+        margin-right: 5px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    #navigation a.current {
+        background-color: white;
+        color:#212121;
+        border:#212121 3px solid;
+    }
+
+
+
+    #navigation a {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #212121;
+        color: #fff;
+        text-decoration: none;
+        margin-right: 5px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    #navigation a.current {
+        background-color: white;
+        color:#212121;
+        border:#212121 3px solid;
+    }
+
+    .logo {
+        margin-right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+
+	
 			body {
-			background-color: #D32F2F;
-			font-family: 'Calibri', sans-serif !important;
-			margin: 10px;
-			padding: 0px;
-			}
-			#component {
-			padding-top: 20px;
-			margin-right: 5px;
-			margin-left: 5px;
-			background-color:white;
-			padding-bottom: 40px;
-			}
-			#stepContainer {
-			max-width: 600px;
-			margin: 0 auto;
-			background-color:white;
-			}
-			.card {
-			/* background of steps */
-			background-color:#D32F2F;/* linear-gradient(lightgreen,lightblue/*#9E6F21,#9E6F21);*/
-			color: #fff;
-			padding: 20px;
-			margin-bottom: 10px;
-			transition: opacity 0.3s ease-in-out;
-			opacity: 0;
-			}
-			.card-visible {
-			opacity: 1;
-			}
-			#buttonContainer {
-			text-align: right;
-			margin-top: 20px;
-			}
-			#previousButton,
-			#nextButton,
-			#playButton {
-			padding: 10px 20px;
-			font-size: 16px;
-			/* play and next button */
-			background-color: #D32F2F;
-			color: #fff;
-			border: none;
-			cursor: pointer;
-			display: inline-block;
-			margin-left: 10px;
-			}
-			#voiceSelectorContainer {
-			margin-top: 10px;
-			text-align: center;
-			}
-			#voiceSelector {
+		font-family: Arial, sans-serif;
+		line-height: 1.6;
+		color: #333;
+		background-color: #f4f4f4;
+		margin: 0;
+		padding: 0;
+		}
+
+		.top-heading {
+		margin: auto;
+		text-align: center;
+		padding: 1rem;
+		overflow: hidden;
+		background-color: #1A1A1A;
+		color: #fff;
+		justify-content: center;
+		align-items: center;
+		}
+
+		.top-heading img {
+		height: 40px;
+		width: 40px;
+		}
+
+		#component {
+		background-color: white;
+		padding-bottom: 40px;
+		perspective: 1000px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		}
+
+		#stepContainer {
+		max-width: 600px;
+		position: relative;
+		background-color: white;
+		transform-style: preserve-3d;
+		margin: 0 auto;
+		padding: 10px;
+		border-radius: 5px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		}
+
+		.card {
+		background: linear-gradient(#333, #444);
+		color: #fff;
+		padding: 20px;
+		position: relative;
+		transform: rotateX(2deg) rotateY(-1deg);
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+		transition: opacity 0.3s ease-in-out;
+		opacity: 0;
+		border-radius: 5px;
+		}
+
+		.card-visible {
+		opacity: 1;
+		}
+
+		#buttonContainer {
+		text-align: right;
+		margin-top: 20px;
+		}
+
+		#previousButton,
+		#nextButton,
+		#playButton {
+		padding: 10px 20px;
+		font-size: 16px;
+		background-color: #212121;
+		color: #fff;
+		border: none;
+		cursor: pointer;
+		display: inline-block;
+		margin-left: 0px;
+		border-radius: 5px;
+		margin-bottom: 10px;
+		}
+
+		#voiceSelectorContainer {
+		margin-top: 10px;
+		text-align: center;
+		}
+
+		#voiceSelector {
+		padding: 5px;
+		font-size: 14px;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+		}
+
+		#navigation {
+		text-align: left;
+		margin-top: 20px;
+		overflow-x: auto;
+		white-space: nowrap;
+		}
+
+		#navigation a {
+		display: inline-block;
+		padding: 5px 10px;
+		background-color: #212121;
+		color: #fff;
+		text-decoration: none;
+		margin-right: 5px;
+		transition: background-color 0.3s ease-in-out;
+		border-radius: 5px;
+		margin-bottom: 10px;
+		}
+		a{
+			text-decoration:none;
+			color:white;
+			background-color: black;
 			padding: 5px;
-			font-size: 14px;
-			}
-			#navigation {
-			text-align: left;
-			margin-top: 20px;
-			}
-			#navigation a {
-			padding: 5px 10px;
-			color: #fff;
-			text-decoration: none;
-			margin-right: 5px;
-			transition: background-color 0.3s ease-in-out;
-			}
-			#navigation a.current {
-			background-color:#D32F2F;
-			}
-			#buttonContainer {
-			text-align: center;
-			margin-top: 20px;
-			}
-			#navigation {
-			text-align: left;
-			margin-top: 20px;
-			overflow-x: auto;
-			white-space: nowrap;
-			}
-			.top-heading {
-			font-size: 24px;
-			font-weight: bold;
-			color: #fff;
-			/* heading top */
-			margin-top:1px; 
-			text-align: center;
-			margin-bottom: 20px;
+		}
+		#navigation a.current {
+		background-color: white;
+		color: #212121;
+		border: #212121 3px solid;
+		}
+		ul {
+		list-style-type: none;
+		background-color:  #333;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+		}
+
+		li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+		}
+
+		.active {
+		background-color:  #333;
+		}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
 			display: flex;
-			align-items: center;
-			justify-content: center;
-			}
-			#navigation a {
-			display: inline-block;
-			padding: 5px 10px;
-			background-color: #D32F2F;
-			color: #fff;
-			text-decoration: none;
-			margin-right: 5px;
-			transition: background-color 0.3s ease-in-out;
-			}
-			#navigation a.current {
-			/* active navigation button */
-			background-color: white;
-			color:#D32F2F;
-			border:#D32F2F 3px solid;
-			}
-			.logo {
-			margin-right: 10px;
-			width: 40px;
-			height: 40px;
-			}
-		</style>
+			justify-content: space-between;
+    }
+
+    li a {
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: grey;
+    }
+
+
+    li:last-child {
+      margin: auto;
+    }
+		@media screen and (max-width: 600px) {
+		#stepContainer {
+			max-width: 100%;
+		}}
+
+</style>
 	</head>
 	<body>
-		<!-- <h1 class="top-heading">
-			<img src="logo.png" alt="Logo" class="logo">
-			SRI SHAKTHI INSTITUTE OF ENGINEERING AND TECHNOLOGY CHEMISTRY LABORATORY
-			</h1> -->
+		<?php
+		$experimentHeading = $_GET["experimentHeading"];
+	
+		?>
+			<ul>
+			<li style="margin-top:4px;margin-left:2px"><a href="http://localhost/chemlab/Experimentlist.php">Expet List</a></li>
+			<li style="margin-top:4px;margin-left:2px"><a href="http://127.0.0.1:5000">Clear doubt</a></li>
+			<li style="float:left;font-size:20px"><a class="active" href="#"><?php echo $experimentHeading; ?></a></li>
+			</ul>
 		<?php
 			// Connect to MySQL
-			$conn = mysqli_connect("sql213.infinityfree.com", "if0_35157610", "pnTR4jkD9wDm3Wp", "if0_35157610_experiment");
+			$conn = mysqli_connect("localhost", "root", "root", "experiment");
 			
 			// Check connection
 			if (!$conn) {
@@ -212,23 +392,9 @@
 			
 			    if (card) {
 			        card.classList.remove('card-visible');
-			        
-                    
-                    
-                    
-                    
-                    // setTimeout(function () {
-			        //     card.innerHTML = '<h2>Step ' + (currentStep + 1) + '/' + totalSteps + '</h2>' + '<p>' + steps[currentStep] + '</p>' +
-			        // '<iframe width="640" height="360" src="' + video[currentStep] + '"></iframe>';
-			        //     card.classList.add('card-visible');
-			        // }, 300);
-                    
-                    
-                    
-                    
                     setTimeout(function () {
-			            card.innerHTML = '<h2>Step ' + (currentStep + 1) + '/' + totalSteps + '</h2>' + '<p>' + steps[currentStep] + '</p>' +
-			        '<video height="300px" width="400px" controls>' +
+			            card.innerHTML = '<h2>Step ' + (currentStep + 1) + '/' + totalSteps + '</h2>' + '<p style="font-size:20px;">' + steps[currentStep] + '</p>' +
+			        '<video style="margin-left:40px;" height="300px" width="400px" controls>' +
 			        '<source src="' + video[currentStep] + '" type="video/mp4">' +
 			        '</video>';
 			            card.classList.add('card-visible');

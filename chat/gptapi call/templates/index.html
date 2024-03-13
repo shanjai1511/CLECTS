@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            padding: 2rem;
+            background-color: white;
+            padding-top: 60px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            background-color: #444;
+            color: #fff;
+            padding: 0.5rem;
+            border-radius: 0.5rem 1rem 0 0;
+        }
+
+        form {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 0.5rem;
+            margin-right:3px;
+            margin-top:10px;
+            border-style: none;
+            border-width: 1.2px;
+            border-radius: 0.7rem 0 0 0.7rem;
+            background-color: #dadada;
+            color: black;
+        }
+
+        input[type="text"]::placeholder {
+            color: #171717;
+        }
+
+        input[type="submit"] {
+            margin-top: 10px;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0 0.7rem 0.7rem 0;
+            background-color: grey;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            background-color: whitesmoke;
+            /* border: 0.1px solid #1d1d1d; */
+            border-radius: 0.8rem;
+            margin: auto;
+            width: 70%;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-bubble {
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .user-message {
+            background-color: #dcf8c6;
+            align-self: flex-start;
+            border-radius: 0.7rem 0.7rem 0 0.7rem;
+        }
+
+        .bot-message {
+            background-color: #e6f5ff;
+            align-self: flex-end;
+            border-radius: 0.7rem 0.7rem 0.7rem 0;
+        }
+
+        nav {
+            font-size: 10px;
+            width:100%;
+            margin:0px;
+            background-color: #333;
+            padding: 0px;
+            overflow: hidden;
+            position: fixed; /* add this line */
+            top: 0; /* add this line */
+            left: 0; /* add this line */
+            width: 100%; /* add this line */
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            background-color: black;
+        }
+
+        nav a:hover {
+            background-color: grey;
+            color: white;
+        }
+
+        .current {
+            background-color: #333;
+            margin-left:50px;
+        }
+
+        .current:hover{
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="http://localhost/chemlab/Experimentlist.php">Expet List</a>
+        <a class="current" href="#">Simple Chatbot</a>
+    </nav>
+    <br><br>
+    <div class="chat-container">
+        {% if user_input and response %}
+            <p class="message-bubble user-message">{{ user_input }}</p>
+            <p class="message-bubble bot-message"> {{ response }}</p>
+        {% endif %}
+        <form method="post" action="/">
+            <input type="text" name="user_input" placeholder="Type your message here..." required>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</body>
+</html>

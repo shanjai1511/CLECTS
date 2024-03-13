@@ -36,7 +36,7 @@
 			font-family: Raleway, sans-serif;
 			}
 			body {
-			background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+				background: linear-gradient(90deg, #2D2D3C, #1A1A2E);		
 			}
 			.container {
 			display: flex;
@@ -45,11 +45,12 @@
 			min-height: 100vh;
 			}
 			.screen {		
-			background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+				background: linear-gradient(90deg, #4D4D5E, #333344);
+  border-radius: 10px;	
 			position: relative;	
 			height: 600px;
 			width: 360px;	
-			box-shadow: 0px 0px 24px #5C5696;
+			box-shadow: 0px 0px 24px black;
 			}
 			.screen__content {
 			z-index: 1;
@@ -69,6 +70,7 @@
 			.screen__background__shape {
 			transform: rotate(45deg);
 			position: absolute;
+			
 			}
 			.screen__background__shape1 {
 			height: 520px;
@@ -81,7 +83,7 @@
 			.screen__background__shape2 {
 			height: 220px;
 			width: 220px;
-			background: #6C63AC;	
+			background: #5C5C6B;	
 			top: -172px;
 			right: 0;	
 			border-radius: 32px;
@@ -89,7 +91,7 @@
 			.screen__background__shape3 {
 			height: 540px;
 			width: 190px;
-			background: linear-gradient(270deg, #5D54A4, #6A679E);
+			background: linear-gradient(270deg, #4D4D5E, #3F3F4F);
 			top: -24px;
 			right: 0;	
 			border-radius: 32px;
@@ -97,7 +99,7 @@
 			.screen__background__shape4 {
 			height: 400px;
 			width: 200px;
-			background: #7E7BB9;	
+			background: #6E6E7D;	
 			top: 220px;
 			right: 50px;	
 			border-radius: 60px;
@@ -144,7 +146,7 @@
 			display: flex;
 			align-items: center;
 			width: 100%;
-			color: #4C489D;
+			color: black;
 			box-shadow: 0px 2px 2px #5C5696;
 			cursor: pointer;
 			transition: .2s;
@@ -183,6 +185,21 @@
 			.social-login__icon:hover {
 			transform: scale(1.5);	
 			}
+			.login__icon {
+  color: #B1B1C2;
+}
+
+
+.button__icon {
+  color: #B1B1C2;
+}
+.social-login__icon {
+  text-shadow: 0px 0px 8px #888888;
+}
+.social-login__icon:hover {
+  transform: scale(1.5);
+  filter: brightness(1.2);
+}
 		</style>
 	</head>
 	<body>

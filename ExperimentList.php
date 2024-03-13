@@ -1,109 +1,105 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>SIET Chem Lab</title>
 		<link rel="icon" type="image/x-icon" href="logo.png">
 		<style>
-			@import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
-			body {
-			background-color: #D32F2F;
-			font-family: 'Calibri', sans-serif !important;
-			}
-			.mt-100 {
-			margin-top: 100px;
-			}
-			.mb-100 {
-			}
-			.card {
-			margin-left:15px;
-			margin-right:15px;
-			position: relative;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-			flex-direction: column;
-			min-width: 0;
-			word-wrap: break-word;
-			background-color: #fff;
-			background-clip: border-box;
-			border: 0px solid transparent;
-			border-radius: 0px;
-			}
-			.card-body {
-			-webkit-box-flex: 1;
-			-ms-flex: 1 1 auto;
-			flex: 1 1 auto;
-			padding: 1.25rem;
-			}
-			.card .card-title {
-			position: relative;
-			font-weight: 600;
-			margin-bottom: 10px;
-			display: inline-block;
-			}
-			.card .experiment-aim {
-			color: #777;
-			}
-			ul.list-style-none {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-			}
-			ul.list-style-none li {
-			display: table-row;
-			}
-			ul.list-style-none li a {
-			color: #673AB7;
-			padding: 8px 0px;
-			display: table-cell;
-			text-decoration: none;
-			vertical-align: middle;
-			}
-			.top-heading {
-			font-size: 24px;
-			font-weight: bold;
-			color: #fff;
-			text-align: center;
-			margin-bottom: 20px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			}
-			.logo {
-			margin-right: 10px;
-			width: 40px;
-			height: 40px;
-			}
-			.experiment-info {
-			display: flex;
-			align-items: center;
-			}
-			.experiment-name {
-			margin-right: 10px;
-			}
-			.experiment-aim {
-			color: #777;
-			}
-			/* Responsive Styling */
-			@media only screen and (max-width: 600px) {
-			.top-heading {
-			font-size: 20px;
-			margin-bottom: 10px;
-			}
-			.logo {
-			width: 30px;
-			height: 30px;
-			}
-			ul.list-style-none li a {
-			padding: 5px 0px;
-			}
-			.card-body {
-			padding: 1rem;
-			}
-			}
+  @import url('https://fonts.googleapis.com/css2?family=Calibri:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+  body {
+    background-color: #212121;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .top-heading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+	font-size:20px;
+	text-align:left;
+    background-color: #1A1A1A;
+    padding: 1rem;
+    display: flex;
+	color:#fff;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .top-heading .logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #3E3E3E;
+    border-radius: 8px;
+    margin: 1.5rem auto;
+    width: 90%;
+    max-width: 1200px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-body {
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-body::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 50% 0, rgba(0, 0, 0, 0.2), transparent), radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.2), transparent);
+    background-size: 1500% 1500%;
+    animation: Rotate 12s linear infinite;
+    transform-origin: center;
+  }
+
+  .card-body h4 {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .card-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card-body ul li {
+    width: calc(33.333% - 20px);
+    margin-bottom: 1rem;
+    background-color: #4A4A4A;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .card-body ul li a {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    text-decoration: none;
+    color: #fff;
+  }
+
 		</style>
 	</head>
 	<body>
@@ -112,11 +108,13 @@
 				<img src="logo.png" alt="Logo" class="logo">
 				SRI SHAKTHI INSTITUTE OF ENGINEERING AND TECHNOLOGY CHEMISTRY LABORATORY
 			</h1>
+			<br><br><br><br><br>
+			
+					
 			<div class="card">
-				<div class="card-body">
-					<a href="http://localhost/chemlab/studentsafety.html" style="float:right">Safety Protocol</a>
-					<br>
-					<h4 class="card-title">Experiments</h4>
+				<br>
+			<a href="http://localhost/chemlab/studentsafety.html" style="color:white;margin-left:  50px;float:right">Safety Protocol</a>
+     	<div class="card-body">
 					<ul class="list-style-none">
 						<?php
 							// Connect to MySQL
@@ -134,8 +132,8 @@
 							// Check if any experiments exist
 							if (mysqli_num_rows($result) > 0) {
 							    while ($row = mysqli_fetch_assoc($result)) {
-							        echo '<li><a href="experiment_steps.php?experimentId=' . $row['experimentId'] . '"><div class="experiment-info"><span class="experiment-name">' . $row['experimentName'] . '</span> - <span class="experiment-aim">' . $row['aim'] . '</span></div></a></li>';
-							    }
+							        echo '<li><a href="experiment_steps.php?experimentId='.$row['experimentId'].'&experimentHeading='.$row['experimentName'].'"><span class="experiment-info"><span class="experiment-name">' . $row['experimentName'] . '</span> - <span class="experiment-aim">' . $row['aim'] . '</span></span></a></li>';
+								}
 							} else {
 							    echo '<li>No experiments found.</li>';
 							}
