@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import openai
 
 app = Flask(__name__)
-openai.api_key = "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"
+openai.api_key = ""
 
 @app.route('/', methods=['GET', 'POST'])
 def chatbot():
